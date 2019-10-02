@@ -1,0 +1,570 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>The NEW Game of Life</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/styles.css" />
+    <script src="scripts/formController.js" type=text/javascript></script>
+    <script src="scripts/formModel.js" type="text/javascript"></script>
+</head>
+<body>
+    <div id="main">
+        <div id="info-box">
+            <p id="infoMsg">
+                
+            </p>
+        </div>
+        <button type="button" id="prevBtn">&lt;&lt; Previous</button>
+        <button type="button" id="skipBtn">Skip Tutorial</button>
+        <button type="button" id="nextBtn">Next &gt;&gt;</button>
+        <table>
+            <tr>
+                <td class="broad grass" id="clock"></td><td colspan="2" class="grass"><img src="img/town_hall.png" class="icon" id="townhallIcon"></td>
+                <td colspan="2" class="grass"><img src="img/police_station.png" class="icon" id="policeIcon"></td>
+                <td colspan="2" class="grass"><img src="img/bank.png" class="icon" id="bankIcon"></td>
+                <td colspan="2"  class="grass"><img src="img/sports.png" class="icon" id="sportsIcon"></td><td class="broad grass"></td>
+            </tr>
+            <tr>
+                <td rowspan="2"  class="grass"><img src="img/school.png" class="icon" id="schoolIcon"></td><td class="sidewalk"></td><td class="sidewalk"></td><td class="sidewalk"></td>
+                <td class="sidewalk"></td><td class="sidewalk"></td><td class="sidewalk"></td><td class="sidewalk"></td><td class="sidewalk"></td>
+                <td rowspan="2" class="grass"><img src="img/news.png" class="icon" id="newsIcon"></td>
+            </tr>
+            <tr>
+                <td class="sidewalk"></td>
+                <td rowspan="6" colspan="6" class="grass">
+                    <div id="centerMsgBox">
+                        <h4 id="centerHeader"></h4>
+                        <p id="centerMsg"></p>
+                        <p id="centerError"></p>
+                        <div id="gettingStarted1">
+                            <button type="button" id="nextStepBtn">NEXT STEP</button>
+                            <table id="characterSelection">
+                                <tr>
+                                    <td><img src="img/blackChar.png" id="blackChar"><img src="img/check.png" class="checkIcon" id="blackCharCheck"></td>
+                                    <td><img src="img/redChar.png" id="redChar"><img src="img/check.png" class="checkIcon" id="redCharCheck"></td>
+                                    <td><img src="img/blueChar.png" id="blueChar"><img src="img/check.png" class="checkIcon" id="blueCharCheck"></td>
+                                    <td><img src="img/yellowChar.png" id="yellowChar"><img src="img/check.png" class="checkIcon" id="yellowCharCheck"></td>
+                                </tr>
+                                <tr>
+                                    <td><img src="img/pinkChar.png" id="pinkChar"><img src="img/check.png" class="checkIcon" id="pinkCharCheck"></td>
+                                    <td><img src="img/greenChar.png" id="greenChar"><img src="img/check.png" class="checkIcon" id="greenCharCheck"></td>
+                                    <td><img src="img/orangeChar.png" id="orangeChar"><img src="img/check.png" class="checkIcon" id="orangeCharCheck"></td>
+                                    <td><img src="img/purpleChar.png" id="purpleChar"><img src="img/check.png" class="checkIcon" id="purpleCharCheck"></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div id="gettingStarted2">
+                            <form name="gameLengthForm">
+                                <input type="radio" name="gameLength" value="short" id="short"> <label for="short">25 days (short)</label><br>
+                                <input type="radio" name="gameLength" value="medium" id="medium"> <label for="medium">50 days (medium)</label><br>
+                                <input type="radio" name="gameLength" value="long" id="long"> <label for="long">100 days (long)</label><br>
+                                <input type="radio" name="gameLength" value="unlimited" id="unlimited"> <label for="unlimited">Unlimited</label>
+
+                                <button type="button" id="playBtn">PLAY</button>
+                            </form>
+                        </div>
+                        <div id="townhallIconCenter1">
+                            <button type="button" class="job-btns" id="townhallHireBtn">Inquire about Job</button>
+                            <button type="button" class="clockin-btns" id="townhallClockinBtn">Clock In</button>
+                        </div>
+                        <div id="townhallIconCenter2">
+                            <button type="button" class="regJob-btns" id="townhallJobBtn">Positions</button>
+                        </div>
+                        <div id="townhallIconCenter2-1">
+                            <span class="word-link" id="townhallSecre">Secretary: </span>$10/hr<br>
+                            Requ: Some Public Speaking Exp.<br>
+                            <span class="word-link" id="townhallCamp">Campaign Manager: </span>$20/hr<br>
+                            Requ: Some Management Exp. & Most Business Deg.<br>
+                            <span class="word-link" id="townhallTrea">Treasurer: </span>$30/hr<br>
+                            Requ: Business Deg. & Much Management Exp. & Much Finance Exp.<br>
+                            <span class="word-link" id="townhallMayor">Mayor: </span>$40/hr<br>
+                            Requ: Public Speaking Deg. & Ton Public Speaking Exp.
+                        </div>
+                        <div id="townhallWorkBox">
+                            <button type="button" class="work-btns" id="townhallWorkBtn">WORK</button>
+                        </div>                        
+                        <div id="policeIconCenter1">
+                            <button type="button" class="job-btns" id="policeHireBtn">Inquire about Job</button>
+                            <button type="button" class="clockin-btns" id="policeClockinBtn">Clock In</button>
+                        </div>
+                        <div id="policeIconCenter2">
+                            <button type="button" class="regJob-btns" id="policeJobBtn">Industry Jobs</button>
+                            <button type="button" class="adminJob-btns" id="policeAdminBtn">Administrative Jobs</button>
+                        </div>
+                        <div id="policeIconCenter2-1">
+                            <span class="word-link" id="policeDep">Deputy: </span>$10/hr<br>
+                            Requ: Some Industry Exp. OR Some Law-Enf Deg.<br>
+                            <span class="word-link" id="policeSrg">Sergeant: </span>$20/hr<br>
+                            Requ: Much Industry Exp. OR Most Law-Enf Deg.<br>
+                            <span class="word-link" id="policeLtn">Lieutenant: </span>$30/hr<br>
+                            Requ: Law-Enf Deg. & Some Industry Exp.<br>
+                            <span class="word-link" id="policeCpt">Captain: </span>$40/hr<br>
+                            Requ: Law-Enf Deg. & Ton Industry Exp.
+                        </div>
+                        <div id="policeIconCenter2-2">
+                            <span class="word-link" id="policeAcc">Accountant: </span>$10/hr<br>
+                            Requ: Most Business Deg.<br>
+                            <span class="word-link" id="policeAdmin">Office Admin: </span>$20/hr<br>
+                            Requ: Business Deg. OR Most Business Deg. & Some Industry Exp.<br>
+                            <span class="word-link" id="policeAss">Assistant Director: </span>$30/hr<br>
+                            Requ: Business Deg. & Some Industry Exp. OR Business Deg. & Much Management Exp.<br>
+                            <span class="word-link" id="policeDir">Department Director: </span>$40/hr<br>
+                            Requ: Business Deg. & Much Industry Exp. & Much Management Exp.
+                        </div>
+                        <div id="policeWorkBox">
+                            <button type="button" class="work-btns" id="policeWorkBtn">WORK</button>
+                        </div>                        
+                        <div id="bankIconCenter1">
+                            <button type="button" class="job-btns" id="bankHireBtn">Inquire about Job</button>
+                            <button type="button" class="clockin-btns" id="bankClockinBtn">Clock In</button>
+                        </div>
+                        <div id="bankIconCenter2">
+                            <button type="button" class="regJob-btns" id="bankJobBtn">Industry Jobs</button>
+                            <button type="button" class="secJob-btns" id="bankSecBtn">Security Jobs</button>
+                        </div>
+                        <div id="bankIconCenter2-1">
+                            <span class="word-link" id="bankTell">Teller: </span>$10/hr<br>
+                            Requ: No Requirements<br>
+                            <span class="word-link" id="bankAdvisor">Financial Advisor: </span>$20/hr<br>
+                            Requ: Some Industry Exp. & Some Business Deg.<br>
+                            <span class="word-link" id="bankDir">Finance Director: </span>$30/hr<br>
+                            Requ: Much Industry Exp. & Much Business Deg.<br>
+                            <span class="word-link" id="bankMan">Bank Manager: </span>$40/hr<br>
+                            Requ: Business Deg. & Much Industry Exp.
+                        </div>
+                        <div id="bankIconCenter2-3">
+                            <span class="word-link" id="bankGuard">Security Guard: </span>$10/hr<br>
+                            Requ: No Requirements<br>
+                            <span class="word-link" id="bankSecur">Head of Security: </span>$20/hr<br>
+                            Requ: Much Law-Enf Experience
+                        </div>
+                        <div id="bankWorkBox">
+                            <button type="button" class="work-btns" id="bankWorkBtn">WORK</button>
+                        </div>                        
+                        <div id="sportsIconCenter1">
+                            <button type="button" class="job-btns" id="sportsHireBtn">Inquire about Job</button>
+                            <button type="button" class="clockin-btns" id="sportsClockinBtn">Clock In</button>
+                        </div>
+                        <div id="sportsIconCenter2">
+                            <button type="button" class="regJob-btns" id="sportsJobBtn">Industry Jobs</button>
+                            <button type="button" class="adminJob-btns" id="sportsAdminBtn">Administrative Jobs</button>
+                            <button type="button" class="secJob-btns" id="sportsSecBtn">Security Jobs</button>
+                        </div>
+                        <div id="sportsIconCenter2-1">
+                            <span class="word-link" id="sportsFan">Fanatic: </span>Unpaid<br>
+                            Requ: No Requirements<br>
+                            <span class="word-link" id="sportsSemi">Semi-Pro Player: </span>$20/hr<br>
+                            Requ: Some Industry Exp.<br>
+                            <span class="word-link" id="sportsPro">Pro Player: </span>$30/hr<br>
+                            Requ: Ton Industry Exp.<br>
+                            <span class="word-link" id="sportsCoach">Coach: </span>$40/hr<br>
+                            Requ: Athletics Deg. & Much Industry Exp.
+                        </div>
+                        <div id="sportsIconCenter2-2">
+                            <span class="word-link" id="sportsClub">Fan Club Manager: </span>$10/hr<br>
+                            Requ: Most Business Deg.<br>
+                            <span class="word-link" id="sportsAdmin">Team Admin: </span>$20/hr<br>
+                            Requ: Business Deg. OR Most Business Deg. & Some Industry Exp.<br>
+                            <span class="word-link" id="sportsMan">Team Manager: </span>$30/hr<br>
+                            Requ: Business Deg. & Some Industry Exp. OR Business Deg. & Much Management Exp.<br>
+                            <span class="word-link" id="sportsChair">Chairman: </span>$40/hr<br>
+                            Requ: Business Deg. & Much Industry Exp. & Much Management Exp.
+                        </div>
+                        <div id="sportsIconCenter2-3">
+                            <span class="word-link" id="sportsGuard">Security Guard: </span>$10/hr<br>
+                            Requ: No Requirements<br>
+                            <span class="word-link" id="sportsSecur">Head of Security: </span>$20/hr<br>
+                            Requ: Much Law-Enf Experience
+                        </div>
+                        <div id="sportsWorkBox">
+                            <button type="button" class="work-btns" id="sportsWorkBtn">WORK</button>
+                        </div>                        
+                        <div id="schoolIconCenter1">
+                            <button type="button" class="job-btns" id="schoolHireBtn">Inquire about Job</button>
+                            <button type="button" class="clockin-btns" id="schoolClockinBtn">Clock In</button>
+                            <button type="button" id="chooseMajorBtn"><span id="chooseMajorLabel"></span></button>
+                            <button type="button" id="classBtn">Go to Class</button>
+                        </div>
+                        <div id="schoolIconCenter2">
+                            <div id="leftMajors">
+                                <span class="word-link" id="businessLink">Business/Finance</span><br><br>
+                                <span class="word-link" id="culinaryLink">Culinary Arts</span><br><br>
+                                <span class="word-link" id="policeLink">Law Enforcement</span><br><br>
+                                <span class="word-link" id="educationLink">Education</span><br><br>
+                                <span class="word-link" id="aeroLink">Aeronautics</span>
+                            </div>
+                            <div id="rightMajors">
+                                <span class="word-link" id="sportsLink">Athletics</span><br><br>
+                                <span class="word-link" id="medicalLink">Medical</span><br><br>
+                                <span class="word-link" id="speakLink">Public Speaking</span><br><br>
+                                <span class="word-link" id="computerLink">Computer Science</span>
+                            </div>
+                        </div>
+                        <div id="schoolIconCenter3"></div>
+                        <div id="schoolIconCenter4">
+                            <button type="button" class="regJob-btns" id="schoolJobBtn">Industry Jobs</button>
+                            <button type="button" class="adminJob-btns" id="schoolAdminBtn">Administrative Jobs</button>
+                        </div>
+                        <div id="schoolIconCenter4-1">
+                            <span class="word-link" id="schoolAid">Teacher Aid: </span>$10/hr<br>
+                            Requ: Some Education Deg.<br>
+                            <span class="word-link" id="schoolTutor">Tutor: </span>$20/hr<br>
+                            Requ: Most Education Deg. OR Some Education Deg. & Some Industry Exp.<br>
+                            <span class="word-link" id="schoolProf">Professor: </span>$30/hr<br>
+                            Requ: Education Deg. & Some Industry Exp.<br>
+                            <span class="word-link" id="schoolHead">Department Head: </span>$40/hr<br>
+                            Requ: Education Deg. & Much Industry Exp.
+                        </div>
+                        <div id="schoolIconCenter4-2">
+                            <span class="word-link" id="schoolAcc">Accountant: </span>$10/hr<br>
+                            Requ: Most Business Deg.<br>
+                            <span class="word-link" id="schoolDepAdmin">Department Administrator: </span>$20/hr<br>
+                            Requ: Business Deg. OR Most Business Deg. & Some Industry Exp.<br>
+                            <span class="word-link" id="schoolBoard">Board Member: </span>$30/hr<br>
+                            Requ: Business Deg. & Some Industry Exp. OR Business Deg. & Much Management Exp.<br>
+                            <span class="word-link" id="schoolPres">President: </span>$40/hr<br>
+                            Requ: Business Deg. & Much Industry Exp. & Much Management Exp.
+                        </div>
+                        <div id="schoolWorkBox">
+                            <button type="button" class="work-btns" id="schoolWorkBtn">WORK</button>
+                        </div>
+                        <div id="newsIconCenter1">
+                            <button type="button" class="job-btns" id="newsHireBtn">Inquire about Job</button>
+                            <button type="button" class="clockin-btns" id="newsClockinBtn">Clock In</button>
+                        </div>
+                        <div id="newsIconCenter2">
+                            <button type="button" class="regJob-btns" id="newsJobBtn">Industry Jobs</button>
+                            <button type="button" class="adminJob-btns" id="newsAdminBtn">Administrative Jobs</button>
+                            <button type="button" class="secJob-btns" id="newsSecBtn">Security Jobs</button>
+                        </div>
+                        <div id="newsIconCenter2-1">
+                            <span class="word-link" id="newsIntern">Intern: </span>$10/hr<br>
+                            Requ: In the middle of Public Speaking Degree<br>
+                            <span class="word-link" id="newsFore">Forecaster: </span>$20/hr<br>
+                            Requ: Some Industry Exp. & Most Speech Deg.<br>
+                            <span class="word-link" id="newsSports">Sportscaster: </span>$30/hr<br>
+                            Requ: Much Sports Exp. OR Speech Deg.<br>
+                            <span class="word-link" id="newsAnchor">Anchor: </span>$40/hr<br>
+                            Requ: Speech Deg. & Much Industry Exp.
+                        </div>
+                        <div id="newsIconCenter2-2">
+                            <span class="word-link" id="newsAcc">Accountant: </span>$10/hr<br>
+                            Requ: Most Business Deg.<br>
+                            <span class="word-link" id="newsFin">Financial Manager: </span>$20/hr<br>
+                            Requ: Business Deg. OR Most Business Deg. & Some Industry Exp.<br>
+                            <span class="word-link" id="newsExec">Executive: </span>$30/hr<br>
+                            Requ: Business Deg. & Some Industry Exp. OR Business Deg. & Much Management Exp.<br>
+                            <span class="word-link" id="newsCeo">CEO: </span>$40/hr<br>
+                            Requ: Business Deg. & Much Industry Exp. & Much Management Exp.
+                        </div>
+                        <div id="newsIconCenter2-3">
+                            <span class="word-link" id="newsGuard">Security Guard: </span>$10/hr<br>
+                            Requ: No Requirements<br>
+                            <span class="word-link" id="newsSecur">Head of Security: </span>$20/hr<br>
+                            Requ: Much Law-Enf Experience
+                        </div>
+                        <div id="newsWorkBox">
+                            <button type="button" class="work-btns" id="newsWorkBtn">WORK</button>
+                        </div>                        
+                        <div id="realtorIconCenter1">
+                            <button type="button" id="propertyInc">Buy/Sell Property</button>
+                        </div>
+                        <div id="realtorIconCenter1-1">
+                            <img src="img/check.png" class="checkIcon" id="prop0check">Property A: $<span id="propAprice"></span>
+                            <button type="button" class="buy-btns" id="propertyBuyA">Buy</button><button type="button" class="sell-btns" id="propertySellA">Sell</button><br>
+                            <img src="img/check.png" class="checkIcon" id="prop1check">Property B: $<span id="propBprice"></span>
+                            <button type="button" class="buy-btns" id="propertyBuyB">Buy</button><button type="button" class="sell-btns" id="propertySellB">Sell</button><br>
+                            <img src="img/check.png" class="checkIcon" id="prop2check">Property C: $<span id="propCprice"></span>
+                            <button type="button" class="buy-btns" id="propertyBuyC">Buy</button><button type="button" class="sell-btns" id="propertySellC">Sell</button><br>
+                            <img src="img/check.png" class="checkIcon" id="prop3check">Property D: $<span id="propDprice"></span>
+                            <button type="button" class="buy-btns" id="propertyBuyD">Buy</button><button type="button" class="sell-btns" id="propertySellD">Sell</button><br>
+                            <img src="img/check.png" class="checkIcon" id="prop4check">Property E: $<span id="propEprice"></span>
+                            <button type="button" class="buy-btns" id="propertyBuyE">Buy</button><button type="button" class="sell-btns" id="propertySellE">Sell</button><br>
+                            <img src="img/check.png" class="checkIcon" id="prop5check">Property F: $<span id="propFprice"></span>
+                            <button type="button" class="buy-btns" id="propertyBuyF">Buy</button><button type="button" class="sell-btns" id="propertySellF">Sell</button><br>
+                            <img src="img/check.png" class="checkIcon" id="prop6check">Property G: $<span id="propGprice"></span>
+                            <button type="button" class="buy-btns" id="propertyBuyG">Buy</button><button type="button" class="sell-btns" id="propertySellG">Sell</button>
+                        </div>
+                        <div id="apartmentIconCenter1">
+                            <button type="button" id="homeBtn">Go Home</button>
+                            <button type="button" id="leaseBtn">New Lease</button>
+                        </div>
+                        <div id="apartmentIconCenter2">
+                            <button type="button" id="sleepBtn">Sleep</button>
+                            <button type="button" id="wifeBtn">Chat with Wife</button>
+                            <button type="button" id="kidsBtn">Spend time with Fam</button>
+                        </div>
+                        <div id="apartmentIconCenter3">
+                            <span class="word-link" id="oneBed">1 Bedroom: </span>Rent: $100/5 days , Deposit: $100<br><br>
+                            <span class="word-link" id="twoBed">2 Bedroom: </span>Rent: $200/5 days , Deposit: $200<br><br>
+                            <span class="word-link" id="threeBed">3 Bedroom: </span>Rent: $300/5 days , Deposit: $300<br>
+                        </div>
+                        <div id="insurCompIconCenter1">
+                            <button type="button" class="job-btns" id="insurHireBtn">Inquire about Job</button>
+                            <button type="button" class="clockin-btns" id="insurClockinBtn">Clock In</button>
+                        </div>
+                        <div id="insurCompIconCenter2">
+                            <button type="button" class="regJob-btns" id="insurJobBtn">Industry Jobs</button>
+                            <button type="button" class="adminJob-btns" id="insurAdminBtn">Administrative Jobs</button>
+                        </div>
+                        <div id="insurCompIconCenter2-1">
+                            <span class="word-link" id="insurRep">Sales Rep: </span>$10/hr<br>
+                            Requ: No Requirements<br>
+                            <span class="word-link" id="insurAdv">Advanced Sales: </span>$20/hr<br>
+                            Requ: Some Sales Exp.<br>
+                            <span class="word-link" id="insurSup">Sales Supervisor: </span>$30/hr<br>
+                            Requ: Much Sales Exp.<br>
+                            <span class="word-link" id="insurHead">Head of Sales: </span>$40/hr<br>
+                            Requ: Any Degree & Much Sales Exp.
+                        </div>
+                        <div id="insurCompIconCenter2-2">
+                            <span class="word-link" id="insurAcc">Accountant: </span>$10/hr<br>
+                            Requ: Most Business Deg.<br>
+                            <span class="word-link" id="insurFin">Financial Manager: </span>$20/hr<br>
+                            Requ: Business Deg. OR Most Business Deg. & Some Sales Exp.<br>
+                            <span class="word-link" id="insurExec">Executive: </span>$30/hr<br>
+                            Requ: Business Deg. & Some Sales Exp. OR Business Deg. & Much Management Exp.<br>
+                            <span class="word-link" id="insurCeo">CEO: </span>$40/hr<br>
+                            Requ: Business Deg. & Much Sales Exp. & Much Management Exp.
+                        </div>
+                        <div id="insurWorkBox">
+                            <button type="button" class="work-btns" id="insurWorkBtn">WORK</button>
+                        </div>
+                        <div id="techCompIconCenter1">
+                            <button type="button" class="job-btns" id="techHireBtn">Inquire about Job</button>
+                            <button type="button" class="clockin-btns" id="techClockinBtn">Clock In</button>
+                        </div>
+                        <div id="techCompIconCenter2">
+                            <button type="button" class="regJob-btns" id="techJobBtn">Industry Jobs</button>
+                            <button type="button" class="adminJob-btns" id="techAdminBtn">Administrative Jobs</button>
+                        </div>
+                        <div id="techCompIconCenter2-1">
+                            <span class="word-link" id="techTech">Tech Support: </span>$10/hr<br>
+                            Requ: No Requirements<br>
+                            <span class="word-link" id="techProg">Programmer: </span>$20/hr<br>
+                            Requ: Some Comp. Deg. & Some Industry Exp. OR Comp. Deg.<br>
+                            <span class="word-link" id="techDev">Senior Developer: </span>$30/hr<br>
+                            Requ: Much Comp. Deg. & Much Industry Exp. OR Comp Deg. & Some Industry Exp.<br>
+                            <span class="word-link" id="techHead">Head Developer: </span>$40/hr<br>
+                            Requ: Comp. Degree & Much Industry Exp.
+                        </div>
+                        <div id="techCompIconCenter2-2">
+                            <span class="word-link" id="techAcc">Accountant: </span>$10/hr<br>
+                            Requ: Most Business Deg.<br>
+                            <span class="word-link" id="techFin">Financial Manager: </span>$20/hr<br>
+                            Requ: Business Deg. OR Most Business Deg. & Some Industry Exp.<br>
+                            <span class="word-link" id="techExec">Executive: </span>$30/hr<br>
+                            Requ: Business Deg. & Some Industry Exp. OR Business Deg. & Much Management Exp.<br>
+                            <span class="word-link" id="techCeo">CEO: </span>$40/hr<br>
+                            Requ: Business Deg. & Much Industry Exp. & Much Management Exp.
+                        </div>
+                        <div id="techWorkBox">
+                            <button type="button" class="work-btns" id="techWorkBtn">WORK</button>
+                        </div>
+                        <div id="suburbsIconCenter1">
+                            <button type="button" id="homeSubBtn">Go Home</button>
+                            <button type="button" id="buyHouseBtn">New House</button>
+                        </div>
+                        <div id="suburbsIconCenter3">
+                            <span class="word-link" id="smallHouse">Low-Class Home: </span>Mortgage: $1000/10 days , Down: $5000<br><br>
+                            <span class="word-link" id="medHouse">Middle-Class Home: </span>Mortgage: $2000/10 days , Down: $10000<br><br>
+                            <span class="word-link" id="bigHouse">Luxury Home: </span>Mortgage: $3000/10 days , Down: $20000<br>
+                        </div>
+                        <div id="templeIconCenter1">
+                            <button type="button" id="marriageBtn">Get Married</button>
+                        </div>
+                        <div id="restaurantIconCenter1">
+                            <button type="button" class="job-btns" id="restHireBtn">Inquire about Job</button>
+                            <button type="button" class="clockin-btns" id="restClockinBtn">Clock In</button>
+                        </div>
+                        <div id="restaurantIconCenter2">
+                            <button type="button" class="regJob-btns" id="restJobBtn">Industry Jobs</button>
+                            <button type="button" class="adminJob-btns" id="restAdminBtn">Administrative Jobs</button>
+                        </div>
+                        <div id="restaurantIconCenter2-1">
+                            <span class="word-link" id="restWait">Waiter: </span>$10/hr<br>
+                            Requ: No Requirements<br>
+                            <span class="word-link" id="restCook">Line Cook: </span>$20/hr<br>
+                            Requ: Some Culinary Deg. OR Some Industry Exp.<br>
+                            <span class="word-link" id="restChef">Chef: </span>$30/hr<br>
+                            Requ: Much Industry Exp. OR Most Culinary Deg. & Some Industry Exp.<br>
+                            <span class="word-link" id="restMaster">Master Chef: </span>$40/hr<br>
+                            Requ: Culinary Degree & Much Industry Exp.
+                        </div>
+                        <div id="restaurantIconCenter2-2">
+                            <span class="word-link" id="restMan">Restaurant Manager: </span>$10/hr<br>
+                            Requ: Most Business Deg.<br>
+                            <span class="word-link" id="restReg">Regional Manager: </span>$20/hr<br>
+                            Requ: Business Deg. OR Most Business Deg. & Some Industry Exp.<br>
+                            <span class="word-link" id="restExec">Executive: </span>$30/hr<br>
+                            Requ: Business Deg. & Much Industry Exp. OR Business Deg. & Much Management Exp.<br>
+                            <span class="word-link" id="restCeo">CEO: </span>$40/hr<br>
+                            Requ: Business Deg. & Much Industry Exp. & Much Management Exp.
+                        </div>
+                        <div id="restWorkBox">
+                            <button type="button" class="work-btns" id="restWorkBtn">WORK</button>
+                        </div>
+                        <div id="mallIconCenter1">
+                            <button type="button" class="job-btns" id="mallHireBtn">Inquire about Job</button>
+                            <button type="button" class="clockin-btns" id="mallClockinBtn">Clock In</button>
+                        </div>
+                        <div id="mallIconCenter2">
+                            <button type="button" class="regJob-btns" id="mallJobBtn">Industry Jobs</button>
+                            <button type="button" class="secJob-btns" id="mallSecBtn">Security Jobs</button>
+                        </div>
+                        <div id="mallIconCenter2-1">
+                            <span class="word-link" id="mallCash">Cashier: </span>$10/hr<br>
+                            Requ: No Requirements<br>
+                            <span class="word-link" id="mallSup">Supervisor: </span>$20/hr<br>
+                            Requ: Some Industry Exp. OR Some Business Deg.<br>
+                            <span class="word-link" id="mallShop">Shop Manager: </span>$30/hr<br>
+                            Requ: Much Industry Exp. & Some Business Deg. OR Business Deg.<br>
+                            <span class="word-link" id="mallMan">Mall Manager: </span>$40/hr<br>
+                            Requ: Business Degree & Much Industry Exp.
+                        </div>
+                        <div id="mallIconCenter2-3">
+                            <span class="word-link" id="mallGuard">Security Guard: </span>$10/hr<br>
+                            Requ: No Requirements<br>
+                            <span class="word-link" id="mallSecur">Head of Security: </span>$20/hr<br>
+                            Requ: Much Law-Enf Experience
+                        </div>
+                        <div id="mallWorkBox">
+                            <button type="button" class="work-btns" id="mallWorkBtn">WORK</button>
+                        </div>
+                        <div id="airportIconCenter1">
+                            <button type="button" class="job-btns" id="airportHireBtn">Inquire about Job</button>
+                            <button type="button" class="clockin-btns" id="airportClockinBtn">Clock In</button>
+                        </div>
+                        <div id="airportIconCenter2">
+                            <button type="button" class="regJob-btns" id="airportJobBtn">Industry Jobs</button>
+                            <button type="button" class="adminJob-btns" id="airportAdminBtn">Administrative Jobs</button>
+                            <button type="button" class="secJob-btns" id="airportSecBtn">Security Jobs</button>
+                        </div>
+                        <div id="airportIconCenter2-1">
+                            <span class="word-link" id="airBag">Baggage Loader: </span>$10/hr<br>
+                            Requ: No Requirements<br>
+                            <span class="word-link" id="airTraf">Air Traffic Dir.: </span>$20/hr<br>
+                            Requ: Some Aero Deg. OR Some Industry Exp.<br>
+                            <span class="word-link" id="airCar">Mail Carrier: </span>$30/hr<br>
+                            Requ: Aero Degree OR Most Aero Deg. & Some Industry Exp.<br>
+                            <span class="word-link" id="airPilot">Airline Pilot: </span>$40/hr<br>
+                            Requ: Aero Degree & Much Industry Exp.
+                        </div>
+                        <div id="airportIconCenter2-2">
+                            <span class="word-link" id="airAcc">Accountant: </span>$10/hr<br>
+                            Requ: Most Business Deg.<br>
+                            <span class="word-link" id="airFin">Financial Manager: </span>$20/hr<br>
+                            Requ: Business Deg. OR Most Business Deg. & Some Industry Exp.<br>
+                            <span class="word-link" id="airExec">Executive: </span>$30/hr<br>
+                            Requ: Business Deg. & Much Industry Exp. OR Business Deg. & Much Management Exp.<br>
+                            <span class="word-link" id="airMan">Airline Manager: </span>$40/hr<br>
+                            Requ: Business Deg. & Much Industry Exp. & Much Management Exp.
+                        </div>
+                        <div id="airportIconCenter2-3">
+                            <span class="word-link" id="airportGuard">Security Guard: </span>$10/hr<br>
+                            Requ: No Requirements<br>
+                            <span class="word-link" id="airportSecur">Head of Security: </span>$20/hr<br>
+                            Requ: Much Law-Enf Experience
+                        </div>
+                        <div id="airportWorkBox">
+                            <button type="button" class="work-btns" id="airportWorkBtn">WORK</button>
+                        </div>
+                        <div id="hospitalIconCenter1">
+                            <button type="button" class="job-btns" id="hospitalHireBtn">Inquire about Job</button>
+                            <button type="button" class="clockin-btns" id="hospitalClockinBtn">Clock In</button>
+                        </div>
+                        <div id="hospitalIconCenter2">
+                            <button type="button" class="regJob-btns" id="hospitalJobBtn">Industry Jobs</button>
+                            <button type="button" class="adminJob-btns" id="hospitalAdminBtn">Administrative Jobs</button>
+                        </div>
+                        <div id="hospitalIconCenter2-1">
+                            <span class="word-link" id="hospitalNur">Nurse: </span>$10/hr<br>
+                            Requ: Most Medical Degree<br>
+                            <span class="word-link" id="hospitalTher">Physical Therapist: </span>$20/hr<br>
+                            Requ: Athletic Degree OR Medical Degree<br>
+                            <span class="word-link" id="hospitalDoc">Doctor: </span>$30/hr<br>
+                            Requ: Medical Degree & Some Industry Exp.<br>
+                            <span class="word-link" id="hospitalHead">Head Doctor: </span>$40/hr<br>
+                            Requ: Medical Degree & Much Industry Exp.
+                        </div>
+                        <div id="hospitalIconCenter2-2">
+                            <span class="word-link" id="hospitalSup">Hospital Supervisor: </span>$10/hr<br>
+                            Requ: Most Business Deg.<br>
+                            <span class="word-link" id="hospitalMan">Hospital Manager: </span>$20/hr<br>
+                            Requ: Business Deg. OR Most Business Deg. & Some Industry Exp.<br>
+                            <span class="word-link" id="hospitalDir">Hospital Director: </span>$30/hr<br>
+                            Requ: Business Deg. & Some Industry Exp. OR Business Deg. & Much Management Exp.<br>
+                            <span class="word-link" id="hospitalAdmin">Hospital Administrator: </span>$40/hr<br>
+                            Requ: Business Deg. & Much Industry Exp. & Much Management Exp.
+                        </div>
+                        <div id="hospitalWorkBox">
+                            <button type="button" class="work-btns" id="hospitalWorkBtn">WORK</button>
+                        </div>
+                    </div>
+                </td>
+                <td class="sidewalk"></td>
+            </tr>
+            <tr>
+                <td rowspan="2" class="grass"><img src="img/realtor.png" class="icon" id="realtorIcon"></td><td class="sidewalk"></td><td class="sidewalk"></td>
+                <td rowspan="2" class="grass"><img src="img/apartment.png" class="icon" id="apartmentIcon"></td>
+            </tr>
+            <tr>
+                <td class="sidewalk"></td><td class="sidewalk"></td>
+            </tr>
+            <tr>
+                <td rowspan="2" class="grass"><img src="img/insurComp.png" class="icon" id="insurCompIcon"></td class="sidewalk"><td class="sidewalk"></td><td class="sidewalk"></td>
+                <td rowspan="2" class="grass"><img src="img/suburbs.png" class="icon" id="suburbsIcon"></td>
+            </tr>
+            <tr>
+                <td class="sidewalk"></td><td class="sidewalk"></td>
+            </tr>
+            <tr>
+                <td rowspan="2" class="grass"><img src="img/techComp.png" class="icon" id="techCompIcon"></td><td class="sidewalk"></td><td class="sidewalk"></td>
+                <td rowspan="2" class="grass"><img src="img/temple.png" class="icon" id="templeIcon"></td>
+            </tr>
+            <tr>
+                <td class="sidewalk"></td><td class="sidewalk"></td><td class="sidewalk"></td><td class="sidewalk"></td><td class="sidewalk"></td>
+                <td class="sidewalk"></td><td class="sidewalk"></td><td class="sidewalk"></td>
+            </tr>
+            <tr>
+                <td class="broad grass"></td><td colspan="2" class="grass"><img src="img/restaurant.png" class="icon" id="restaurantIcon"></td>
+                <td colspan="2" class="grass"><img src="img/mall.png" class="icon" id="mallIcon"></td>
+                <td colspan="2" class="grass"><img src="img/airport.png" class="icon" id="airportIcon"></td>
+                <td colspan="2" class="grass"><img src="img/hospital.png" class="icon" id="hospitalIcon"></td><td class="broad grass"></td>
+            </tr>
+        </table>
+        <div id="gameOverview">
+            <h4 class="headerBox"><b>Game Overview Window</b></h4>
+            <p><b>
+                &nbsp;Players: <span id="totalPlayers"></span><br><br>
+                &nbsp;Day Number: <span id="totalDays"></span><br><br>
+                &nbsp;Days Remaining: <span id="daysLeft"></span><br><br>
+                &nbsp;Order: <span id="playerOrder"></span>
+            </b></p>
+        </div>
+        <img src="img/arrow_left.png" id="gameOverviewArrow">
+        <div id="playerInfo">
+            <h4 class="headerBox"><b>Player Info Window</b></h4>
+            <div id="playerBox">
+                <p><b>
+                    <span id="playerImg"></span>
+                    &nbsp;Color: <span id="playerColor"></span><br><br>
+                    &nbsp;Money: $<span id="playerMoney"></span><br><br>
+                    &nbsp;Job Title: <span id="playerJob"></span><br><br>
+                    &nbsp;Wage: $<span id="playerWage"></span><br><br>
+                    &nbsp;Income: $<span id="playerIncome"></span><br><br>
+                    &nbsp;Expenses: $<span id="playerExpense"></span><br><br>
+                    &nbsp;Marital Status: <span id="playerMarital"></span><br><br>
+                    &nbsp;Children: <span id="playerChild"></span><br><br>
+                </b></p>
+                <button type="button" id="endTurnBtn">End Turn</button>
+            </div>
+        </div>
+        <img src="img/arrow_left.png" id="playerInfoArrow">
+    </div>
+    <script>
+        onPageLoad();
+    </script>
+</body>
+</html>

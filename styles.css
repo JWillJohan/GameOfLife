@@ -1,0 +1,470 @@
+body{
+    background-color: blue;
+}
+#main{
+    position: relative;
+    right: 250px;
+    left: 250px;
+    width: 1400;
+    height: 969;
+    bottom: 0px;
+    background-color: azure;
+}
+#info-box{
+    position: absolute;
+    height: 130;
+    width: 1000;
+    left: 200px;
+    right: 200px;
+    top: 40px;
+
+    background-color: lightblue;
+    border-radius: 10px;
+    border: 1px solid blue;
+
+    text-align: center;
+    padding-top: 20px;
+    color: rgb(33, 83, 219);
+    font-size: 13pt;
+}
+#prevBtn{
+    position: relative;
+    top: 173;
+    left: 200;
+}
+#skipBtn{
+    position: relative;
+    top: 173;
+    left: 560;
+
+}
+#nextBtn{
+    position: fixed;
+    left: 1385;
+    top: 173;
+}
+table{
+    position: relative;
+    top: 200;
+    left: 200;
+}
+td{
+    width: 60px;
+    height: 60px;
+}
+.broad{
+    width: 120px;
+    height: 120px;
+}
+.sidewalk{
+    background-color: gray;
+    border: 1px solid black;
+}
+.grass{
+    background-color: green;
+}
+#gameOverview{
+    position: absolute;
+    height: 200px;
+    width: 300px;
+    top: 226;
+    left: 930;
+    background-color: rgb(223, 205, 210);
+
+    border-radius: 8px;
+    border: 3px solid red;
+}
+#playerInfo{
+    position: absolute;
+    position: absolute;
+    height: 500px;
+    width: 300px;
+    top: 436;
+    left: 930;
+    background-color: rgb(223, 205, 210);
+
+    border-radius: 8px;
+    border: 3px solid red;
+}
+.icon{
+    height: 120px;
+    width: 120px;
+}
+.headerBox{
+    background-color: rgb(212, 127, 149);
+    height: 25px;
+    margin-top: 0px;
+    padding-top: 4px;
+    padding-left: 3px;
+}
+#gameOverviewArrow{
+    position: absolute;
+    left: 1230;
+    top: 220;
+    height: 50px;
+    width: 50px;
+}
+#playerInfoArrow{
+    position: absolute;
+    left: 1230;
+    top: 430;
+    height: 50px;
+    width: 50px;
+}
+#centerMsgBox{
+    position: relative;
+    height: 350px;
+    width: 320px;
+    left: 20;
+    top: 0;
+    border-radius: 7px;
+
+    background-color: rgb(231, 231, 133);
+    border: 3px solid rgba(245, 245, 11, 0.356);
+}
+#centerHeader{
+    background-color: rgb(192, 192, 28);
+    height: 30px;
+    margin-top: 0px;
+    padding-top: 4px;
+    
+    text-align: center;
+    align-content: center;
+}
+#characterSelection{
+    position: relative;
+    top: 60px;
+    left: 7px;
+}
+#characterSelection td{
+    height: 75px;
+    width: 75px;
+}
+#blackChar{
+    height: 60px;
+    width: 50px;
+}
+#redChar{
+    height: 60px;
+    width: 40px;
+}
+#blueChar{
+    height: 60px;
+    width: 40px;
+}
+#greenChar{
+    height: 60px;
+    width: 40px;
+}
+#yellowChar{
+    height: 60px;
+    width: 55px;
+}
+#orangeChar{
+    height: 60px;
+    width: 40px;
+}
+#pinkChar{
+    height: 60px;
+    width: 40px;
+}
+#purpleChar{
+    height: 60px;
+    width: 40px;
+}
+#blackCharImg{
+    position: absolute;
+    right: 2;
+    height: 60px;
+    width: 50px;
+}
+#redCharImg{
+    position: absolute;
+    right: 2;
+    height: 60px;
+    width: 40px;
+}
+#blueCharImg{
+    position: absolute;
+    right: 2;
+    height: 60px;
+    width: 40px;
+}
+#greenCharImg{
+    position: absolute;
+    right: 2;
+    height: 60px;
+    width: 40px;
+}
+#yellowCharImg{
+    position: absolute;
+    right: 2;
+    height: 60px;
+    width: 55px;
+}
+#orangeCharImg{
+    position: absolute;
+    right: 2;
+    height: 60px;
+    width: 40px;
+}
+#pinkCharImg{
+    position: absolute;
+    right: 2;
+    height: 60px;
+    width: 40px;
+}
+#purpleCharImg{
+    position: absolute;
+    right: 2;
+    height: 60px;
+    width: 40px;
+}
+.checkIcon{
+    position: relative;
+    height: 20px;
+    width: 20px;
+    left: 0px;
+    top: 0px;
+}
+#nextStepBtn{
+    position: absolute;
+    left: 105;
+    top: 110;
+    width: 110px;
+
+    color:white;
+    background-color: blue;
+}
+#centerError{
+    color: red;
+}
+#playBtn{
+    position: absolute;
+    left: 115;
+    top: 210;
+    width: 90px;
+
+    color:white;
+    background-color: blue;
+}
+.job-btns{
+    position: absolute;
+    left: 85;
+    top: 110;
+    width: 150px;
+    height: 30px;
+    color:white;
+    background-color: blue;
+}
+.clockin-btns{
+    position: absolute;
+    left: 108;
+    top: 160;
+    width: 100px;
+    height: 30px;
+    color:white;
+    background-color: blue;
+}
+.work-btns{
+    position: absolute;
+    left: 115;
+    top: 180;
+    width: 90px;
+    height: 30px;
+    color:white;
+    background-color: blue;
+}
+#chooseMajorBtn{
+    position: absolute;
+    left: 100;
+    top: 210;
+    width: 120px;
+    height: 30px;
+    color:white;
+    background-color: blue;
+}
+#classBtn{
+    position: absolute;
+    left: 105;
+    top: 260;
+    width: 110px;
+    height: 30px;
+    color:white;
+    background-color: blue;
+}
+.word-link{
+    color: blue;
+}
+#leftMajors{
+    position: absolute;
+    left: 15;
+    top: 95;
+    width: 150px;
+    height: 200px;
+}
+#rightMajors{
+    position: absolute;
+    left: 175;
+    top: 95;
+    width: 150px;
+    height: 200px;
+}
+#chooseBtn{
+    position: absolute;
+    left: 115;
+    top: 180;
+    width: 90px;
+    height: 30px;
+    color:white;
+    background-color: blue;
+}
+#backBtn{
+    position: absolute;
+    left: 15;
+    top: 310;
+    width: 90px;
+    height: 30px;
+    color:white;
+    background-color: blue;
+}
+#studyBtn{
+    position: absolute;
+    left: 115;
+    top: 180;
+    width: 90px;
+    height: 30px;
+    color:white;
+    background-color: blue;
+}
+.regJob-btns{
+    position: absolute;
+    left: 100;
+    top: 100;
+    width: 120px;
+    height: 30px;
+    color:white;
+    background-color: blue;
+}
+.adminJob-btns{
+    position: absolute;
+    left: 80;
+    top: 160;
+    width: 160px;
+    height: 30px;
+    color:white;
+    background-color: blue;
+}
+.secJob-btns{
+    position: absolute;
+    left: 100;
+    top: 210;
+    width: 120px;
+    height: 30px;
+    color:white;
+    background-color: blue;
+}
+#propertyInc{
+    position: absolute;
+    left: 85;
+    top: 110;
+    width: 150px;
+    height: 30px;
+    color:white;
+    background-color: blue;
+}
+#businessInc{
+    position: absolute;
+    left: 85;
+    top: 170;
+    width: 150px;
+    height: 30px;
+    color:white;
+    background-color: blue;
+}
+.buy-btns{
+    position: relative;
+    left: 30;
+    width: 50px;
+    height: 30px;
+    color: white;
+    background-color: blue;
+}
+.sell-btns{
+    position: relative;
+    left: 45;
+    width: 50px;
+    height: 30px;
+    color: white;
+    background-color: blue;
+}
+#homeBtn{
+    position: absolute;
+    left: 105;
+    top: 110;
+    width: 110px;
+    height: 30px;
+    color:white;
+    background-color: blue;
+}
+#leaseBtn{
+    position: absolute;
+    left: 105;
+    top: 170;
+    width: 110px;
+    height: 30px;
+    color:white;
+    background-color: blue;
+}
+#marriageBtn{
+    position: absolute;
+    left: 105;
+    top: 110;
+    color: white;
+    background-color: blue;
+}
+#homeSubBtn{
+    position: absolute;
+    left: 105;
+    top: 110;
+    width: 110px;
+    height: 30px;
+    color:white;
+    background-color: blue;
+}
+#buyHouseBtn{
+    position: absolute;
+    left: 105;
+    top: 170;
+    width: 110px;
+    height: 30px;
+    color:white;
+    background-color: blue;
+}
+#sleepBtn{
+    position: absolute;
+    left: 120;
+    top: 100;
+    width: 70px;
+    height: 30px;
+    color: white;
+    background-color: blue;
+}
+#wifeBtn{
+    position: absolute;
+    left: 85;
+    top: 150;
+    width: 140px;
+    height: 30px;
+    color: white;
+    background-color: blue;
+}
+#kidsBtn{
+    position: absolute;
+    left:  70;
+    top: 200;
+    width: 170px;
+    height: 30px;
+    color: white;
+    background-color: blue;
+}
